@@ -7,7 +7,7 @@
              x:Class="AppSuggest.ConnectionPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="-Connect with-"/>
+            <Label Text="-Connect with a Suggest account-"/>
             <Entry x:Name="email"
                    Placeholder="E-mail"/>
             <Entry x:Name="password"
