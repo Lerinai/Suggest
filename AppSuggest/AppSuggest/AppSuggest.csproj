@@ -46,7 +46,13 @@
     <EmbeddedResource Update="Views\WelcomePage.xaml">
     <Generator>MSBuild:UpdateDesignTimeXalm</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Research.xaml">
+  <EmbeddedResource Update="Views\Research.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
+    <EmbeddedResource Update="ConnectionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Research.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

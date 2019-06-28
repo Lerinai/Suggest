@@ -8,6 +8,15 @@
     <ContentPage.Content>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
             <Label Text="Bienvenue" FontSize="30" FontAttributes="Bold"></Label>
+            <Label Text="-Connect with a Suggest account-"/>
+            <Entry x:Name="email"
+                   Placeholder="E-mail"/>
+            <Entry x:Name="password"
+                   Placeholder="Password"/>
+            <Button x:Name="Enter"
+                    Text="Enter"
+                    Clicked="EnterClicked"/>
+            <Label Text="-or-"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
