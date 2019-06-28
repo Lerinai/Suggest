@@ -17,7 +17,7 @@ namespace AppSuggest
             InitializeComponent();
         }
 
-        async void EnterClicker(object sender, EventArgs e)
+        async void EnterClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainPage()); // Faire lien pour la page initiale avec les verif etc
         }
