@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppSuggest.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace AppSuggest
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new WelcomePage());
         }
 
         protected override void OnStart()

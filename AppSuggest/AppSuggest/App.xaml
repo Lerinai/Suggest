@@ -6,6 +6,16 @@
              mc:Ignorable="d"
              x:Class="AppSuggest.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Color x:Key="pageBackgroundColor">#3399FF</Color>
+            <Style TargetType="NavigationPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource pageBackgroundColor}"/>
+            </Style>
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource pageBackgroundColor}"/>
+            </Style>
+            <Color x:Key="titleColor">#fff</Color>
+            <Color x:Key="shadowColor">#FFD700</Color>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

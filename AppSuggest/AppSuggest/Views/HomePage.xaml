@@ -4,10 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppSuggest.ConnectionPage">
+             x:Class="AppSuggest.Views.HomePage">
     <ContentPage.Content>
-        <StackLayout>
-            
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="Bienvenue" FontSize="30" FontAttributes="Bold"></Label>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
