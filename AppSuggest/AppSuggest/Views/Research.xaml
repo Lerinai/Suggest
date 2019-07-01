@@ -27,26 +27,30 @@
                     SearchButtonPressed="Research_clicked"/>
             </Grid>
             <ListView ItemsSource="{Binding movieList}"
-                HasUnevenRows="true">
+                HasUnevenRows="true"
+                BackgroundColor="Pink"
+                      x:Name="GUIList">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid Padding="10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="1"
-                           Text="{Binding Title}"
-                           FontAttributes="Bold" />
-                                <Label Grid.Row="1"
-                           Grid.Column="1"
-                           Text="{Binding ReleaseDate}"
-                           VerticalOptions="End" />
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{Binding Title}"
+                                    FontAttributes="Bold"/>
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding ReleaseDate}"
+                                    VerticalOptions="End"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
