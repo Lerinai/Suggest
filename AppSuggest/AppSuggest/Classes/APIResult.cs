@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
@@ -23,7 +24,7 @@ namespace AppSuggest
             _client = new HttpClient();
         }
 
-        public async Task<List<Movie>> GetMovieDataAsync(string uri)
+        public async Task<List<Movie>> GetDataAsync(string uri)
         {
             MoviesList moviesList = null;
             try

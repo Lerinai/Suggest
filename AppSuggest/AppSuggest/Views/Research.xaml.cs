@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,9 @@ namespace AppSuggest
     public partial class Research : ContentPage
     {
         RestService _restService;
-        List<Movie> movieList;
+        public IList<Movie> movieList { get; private set; }
         public Research()
         {
-            movieList = new List<Movie>();
             _restService = new RestService();
             InitializeComponent();
 
@@ -26,8 +26,9 @@ namespace AppSuggest
         async void Research_clicked(object sender, EventArgs args)
         {
             if (!string.IsNullOrWhiteSpace(movieSearchBar.Text))
-            { 
-                movieList = await _restService.GetMovieDataAsync(GenerateRequestUri(Constants.TMDBEndPoint));
+            {
+                GUIList.ItemsSource = await _restService.GetDataAsync(GenerateRequestUri(Constants.TMDBEndPoint));
+                BindingContext = this;
             }
         }
         
