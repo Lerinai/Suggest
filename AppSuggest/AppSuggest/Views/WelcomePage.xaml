@@ -11,13 +11,13 @@
             <views:StarsView/>
             <Frame BackgroundColor="Transparent"  VerticalOptions="FillAndExpand">
                 <StackLayout VerticalOptions="Center">
-                    <Image Source="movie.png"/>
+                    <Image Source="movie2.png"/>
                     <Label Text="SUGGEST"
                    TextColor="{StaticResource titleColor}" HorizontalOptions="Center" 
                    FontSize="50"/>
                     
                     <Label Text="Qua venire se repentina Caesar."
-                   TextColor="{StaticResource titleColor}" HorizontalOptions="Center" 
+                   TextColor="{StaticResource titleColor}" HorizontalOptions="Center"
                    FontSize="22" FontAttributes="Italic"/>
                     <Button x:Name="play" Text="Get started" 
                     Margin="0,20,0,0" TextColor="#444" FontSize="20"
