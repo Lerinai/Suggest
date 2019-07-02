@@ -1,3 +1,4 @@
+
 ﻿using AppSuggest.Classes;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,5 @@ namespace AppSuggest.Views
         {
             await Navigation.PushAsync(new EditProfilPage(myUser));
         }
-
     }
 }

@@ -33,7 +33,6 @@
             <Button
                 Text="Edit Profil"
                 Clicked="EditClicked"/>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
