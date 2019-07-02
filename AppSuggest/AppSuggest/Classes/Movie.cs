@@ -53,5 +53,14 @@ namespace AppSuggest
                 return str.Remove(str.Length-2);
             }
         }
+<<<<<<< HEAD
+=======
+
+        public string PosterURL
+        {
+        get { return $"{Constants.PosterEndPoint}/w500/{_posterPath}"; }
+        private set { }
+        }
+>>>>>>> 8cde4042f61cfcbcad2ab47ca560629ff9adac9d
     }
 }
