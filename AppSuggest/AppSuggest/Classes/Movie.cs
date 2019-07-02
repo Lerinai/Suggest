@@ -17,10 +17,23 @@ namespace AppSuggest
         public string Title { get; private set; }
 
         [JsonProperty("release_date")]
-        public string ReleaseDate { get; private set; }
+        private string _releaseDate { get; set; }
+
+        public string ReleaseDate
+        {
+            get
+            {
+                return _releaseDate.Substring(0, 4);
+            }
+        }
 
         [JsonProperty("poster_path")]
         private string _posterPath;
+        public string PosterURL
+        {
+            get { return $"{Constants.PosterEndPoint}/w500/{_posterPath}"; }
+            private set { }
+        }
 
         [JsonProperty("genre_ids")]
         private List<int> _genres;
@@ -39,12 +52,6 @@ namespace AppSuggest
                 }
                 return str.Remove(str.Length-2);
             }
-        }
-
-        public string PosterURL
-        {
-        get { return $"{Constants.PosterEndPoint}/w500/{_posterPath}"; }
-        private set { }
         }
     }
 }

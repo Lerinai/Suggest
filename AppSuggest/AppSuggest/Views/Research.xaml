@@ -22,7 +22,7 @@
                 </Grid.RowDefinitions>
                 <SearchBar x:Name="movieSearchBar"
                     Placeholder="Find a movie" Grid.Column="1" Grid.Row="1"
-                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Fill" HorizontalOptions="FillAndExpand"
                     BackgroundColor="White"
                     SearchButtonPressed="Research_clicked"/>
             </Grid>
