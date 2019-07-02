@@ -14,10 +14,12 @@ namespace AppSuggest
     public partial class Research : ContentPage
     {
         RestService _restService;
+        public List<Genre> Genres;
         public IList<Movie> movieList { get; private set; }
         public Research()
         {
             _restService = new RestService();
+            //Genres = _restService.GetGenresAsync().Result;
             InitializeComponent();
 
             BindingContext = this;
@@ -27,7 +29,8 @@ namespace AppSuggest
         {
             if (!string.IsNullOrWhiteSpace(movieSearchBar.Text))
             {
-                GUIList.ItemsSource = await _restService.GetDataAsync(GenerateRequestUri(Constants.TMDBEndPoint));
+                movieList = await _restService.GetDataAsync(GenerateRequestUri(Constants.MovieResearchEndPoint));
+                GUIList.ItemsSource = movieList;
                 BindingContext = this;
             }
         }
@@ -35,7 +38,7 @@ namespace AppSuggest
         string GenerateRequestUri(string endpoint)
         {
             string requestURL = endpoint;
-            requestURL += $"?api_key={Constants.TMDBKey}";
+            requestURL += $"?api_key={Constants.Key}";
             requestURL += $"&query={movieSearchBar.Text.Replace(' ', '+')}";
             return requestURL;
         }
