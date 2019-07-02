@@ -14,12 +14,10 @@ namespace AppSuggest
     public partial class Research : ContentPage
     {
         RestService _restService;
-        public List<Genre> Genres;
-        public IList<Movie> movieList { get; private set; }
+        public IList<Movie> MovieList { get; private set; }
         public Research()
         {
             _restService = new RestService();
-            //Genres = _restService.GetGenresAsync().Result;
             InitializeComponent();
 
             BindingContext = this;
@@ -27,10 +25,14 @@ namespace AppSuggest
 
         async void Research_clicked(object sender, EventArgs args)
         {
+            if (Genre.Genres == null)
+            {
+                Genre.Genres = await _restService.GetGenresAsync();
+            }
             if (!string.IsNullOrWhiteSpace(movieSearchBar.Text))
             {
-                movieList = await _restService.GetDataAsync(GenerateRequestUri(Constants.MovieResearchEndPoint));
-                GUIList.ItemsSource = movieList;
+                MovieList = await _restService.GetDataAsync(GenerateRequestUri(Constants.MovieResearchEndPoint));
+                GUIList.ItemsSource = MovieList;
                 BindingContext = this;
             }
         }

@@ -9,19 +9,11 @@ namespace AppSuggest
     public class Genre
     {
         [JsonProperty("id")]
-        public int ID { get; private set; }
+        public int ID { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        /*public async static Task<List<Genre>> GetGenres()
-        {
-            if (_genres == null)
-            {
-                RestService _restService = new RestService();
-                _genres = await _restService.GetGenresAsync();
-            }
-            return _genres;
-        }*/
+        public static List<Genre> Genres;
     }
 }
