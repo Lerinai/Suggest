@@ -29,6 +29,7 @@ namespace AppSuggest
 
         [JsonProperty("poster_path")]
         private string _posterPath;
+
         public string PosterURL
         {
             get { return $"{Constants.PosterEndPoint}/w500/{_posterPath}"; }
