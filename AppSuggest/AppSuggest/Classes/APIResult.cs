@@ -15,7 +15,13 @@ namespace AppSuggest
         public List<Movie> ResultsArray { get; set; }
 
         [JsonProperty("total_pages")]
-        public int NbPages { get; private set; }
+        public int NbPages { get; set; }
+    }
+
+    public class APIGenreResults
+    {
+        [JsonProperty("genres")]
+        public List<Genre> ResultsArray { get; set; }
     }
 
     public class RestService
@@ -34,7 +40,6 @@ namespace AppSuggest
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri + $"&page={i}");
-                Console.WriteLine(response.IsSuccessStatusCode);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
@@ -54,17 +59,16 @@ namespace AppSuggest
             return movieList;
         }
 
-        public async Task<List<Genre>> GetGenresAsync ()
+        public async Task<List<Genre>> GetGenresAsync()
         {
-            List<Genre> aPIResult = null;
+            APIGenreResults aPIResult = null;
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(Constants.GenresEndPoint);
-                Console.WriteLine(response.IsSuccessStatusCode);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    aPIResult = JsonConvert.DeserializeObject<List<Genre>>(content);
+                    aPIResult = JsonConvert.DeserializeObject<APIGenreResults>(content);
                 }
             }
             catch (Exception ex)
@@ -72,7 +76,7 @@ namespace AppSuggest
                 Debug.WriteLine("\tERROR {0}", ex.Message);
             }
 
-            return aPIResult;
+            return aPIResult.ResultsArray;
         }
     }
 

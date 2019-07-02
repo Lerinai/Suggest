@@ -30,34 +30,21 @@ namespace AppSuggest
             get
             {
                 string str = "";
-                foreach (int id in _genres)
+                foreach(Genre genre in from genreid in _genres
+                                            from genreapi in Genre.Genres
+                                            where genreid == genreapi.ID
+                                            select genreapi)
                 {
-                    str += id + ", ";
+                    str += genre.Name + ", ";
                 }
                 return str.Remove(str.Length-2);
             }
         }
-            
-
-        /*public string Genres {
-            get
-            {
-                string genres = "";
-                foreach (int id in _genres)
-                {
-                    genres += (from genre in Research.Genres
-                    where id == genre.ID
-                    select genre.Name) + ", ";
-                }
-                return genres.Substring(0, genres.Length-2); 
-            }
-            private set { } }*/
 
         public string PosterURL
         {
-            get { return $"{Constants.PosterEndPoint}/w200/{ _posterPath}"; }
-            private set { }
+        get { return $"{Constants.PosterEndPoint}/w500/{_posterPath}"; }
+        private set { }
         }
-
     }
 }
