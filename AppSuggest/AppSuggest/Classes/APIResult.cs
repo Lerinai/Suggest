@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 
 namespace AppSuggest
 {
-    public class MoviesList
+    public class APIMovieResults
     {
         [JsonProperty("results")]
         public List<Movie> ResultsArray { get; set; }
+
+        [JsonProperty("total_pages")]
+        public int NbPages { get; private set; }
     }
 
     public class RestService
@@ -24,17 +27,23 @@ namespace AppSuggest
             _client = new HttpClient();
         }
 
-        public async Task<List<Movie>> GetDataAsync(string uri)
+        public async Task<List<Movie>> GetDataAsync(string uri, int i = 1)
         {
-            MoviesList moviesList = null;
+            APIMovieResults aPIResult = null;
+            List<Movie> movieList = new List<Movie>();
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(uri);
+                HttpResponseMessage response = await _client.GetAsync(uri + $"&page={i}");
                 Console.WriteLine(response.IsSuccessStatusCode);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    moviesList = JsonConvert.DeserializeObject<MoviesList>(content);
+                    aPIResult = JsonConvert.DeserializeObject<APIMovieResults>(content);
+                    movieList.AddRange(aPIResult.ResultsArray);
+                    if (aPIResult.NbPages > i)
+                    {
+                        movieList.AddRange(await GetDataAsync(uri, i + 1));
+                    }
                 }
             }
             catch (Exception ex)
@@ -42,7 +51,28 @@ namespace AppSuggest
                 Debug.WriteLine("\tERROR {0}", ex.Message);
             }
 
-            return moviesList.ResultsArray;
+            return movieList;
+        }
+
+        public async Task<List<Genre>> GetGenresAsync ()
+        {
+            List<Genre> aPIResult = null;
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(Constants.GenresEndPoint);
+                Console.WriteLine(response.IsSuccessStatusCode);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    aPIResult = JsonConvert.DeserializeObject<List<Genre>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return aPIResult;
         }
     }
 

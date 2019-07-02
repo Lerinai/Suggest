@@ -36,18 +36,27 @@
                             <Grid Padding="10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="3"
+                                    Source="{Binding PosterURL}"
+                                    Aspect="AspectFill"
+                                    WidthRequest="60" />
                                 <Label
                                     Grid.Column="1"
                                     Text="{Binding Title}"
                                     FontAttributes="Bold"/>
-                                <Label
+                                <Label 
+                                    Grid.Column="1"
                                     Grid.Row="1"
+                                    Text="{Binding Genres}"/>
+                                <Label
+                                    Grid.Row="2"
                                     Grid.Column="1"
                                     Text="{Binding ReleaseDate}"
                                     VerticalOptions="End"/>
