@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppSuggest.Views.ProfilPage">
+             x:Class="AppSuggest.Views.EditProfilPage">
     <ContentPage.Content>
         <StackLayout>
             <Label 
@@ -17,23 +17,24 @@
                 Text=""
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Label 
+                x:Name="passWord"
+                Text=""
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label 
+                x:Name="passWordVerif"
+                Text=""
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
             <Image 
                 x:Name="imageProfil"
                 Source=""
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <ListView
-                x:Name="suggestMovie"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand"/>
-            <ListView
-                x:Name="suggestMovieDone"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand"/>
             <Button
-                Text="Edit Profil"
-                Clicked="EditClicked"/>
-
+                Text="Valide Edit"
+                Clicked="ValideEditClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
