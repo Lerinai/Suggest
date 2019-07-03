@@ -45,5 +45,9 @@ namespace AppSuggest
             return requestURL;
         }
 
+        private void GetDetails(object sender, ItemTappedEventArgs e)
+        {
+            Navigation.PushAsync(new MovieDetails((Movie)e.Item));
+        }
     }
 }

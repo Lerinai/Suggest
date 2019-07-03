@@ -24,6 +24,15 @@ namespace AppSuggest
         public List<Genre> ResultsArray { get; set; }
     }
 
+    public class APICreditResults
+    {
+        [JsonProperty("cast")]
+        public List<People> CastMembers { get; }
+
+        [JsonProperty("crew")]
+        public List<People> CrewMembers { get; }
+    }
+
     public class RestService
     {
         HttpClient _client;
@@ -78,6 +87,26 @@ namespace AppSuggest
 
             return aPIResult.ResultsArray;
         }
-    }
 
+        public async Task<List<People>> GetPeopleAsync(Movie movie)
+        {
+            APICreditResults aPIResult = null;
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync($"{Constants.MovieDetailsEndPoint}/{movie.ID}/credits?api_key={Constants.Key}");
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    aPIResult = JsonConvert.DeserializeObject<APICreditResults>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            aPIResult.CastMembers.AddRange(aPIResult.CrewMembers);
+            return aPIResult.CastMembers;
+        }
+    }
 }
