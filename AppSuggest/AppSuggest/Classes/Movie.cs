@@ -19,7 +19,7 @@ namespace AppSuggest
         [JsonProperty("release_date")]
         private string _releaseDate { get; set; }
 
-        public string ReleaseDate
+        public string ReleaseYear
         {
             get
             {
@@ -33,7 +33,6 @@ namespace AppSuggest
         public string PosterURL
         {
             get { return $"{Constants.PosterEndPoint}/w500/{_posterPath}"; }
-            private set { }
         }
 
         [JsonProperty("genre_ids")]
@@ -44,14 +43,46 @@ namespace AppSuggest
             get
             {
                 string str = "";
-                foreach(Genre genre in from genreid in _genres
-                                            from genreapi in Genre.Genres
-                                            where genreid == genreapi.ID
-                                            select genreapi)
+                foreach (Genre genre in from genreid in _genres
+                                        from genreapi in Genre.Genres
+                                        where genreid == genreapi.ID
+                                        select genreapi)
                 {
                     str += genre.Name + ", ";
                 }
-                return str.Remove(str.Length-2);
+                return str.Remove(str.Length - 2);
+            }
+        }
+
+        [JsonProperty("overview")]
+        public string Overview { get; }
+
+        public List<People> ListCast { get;  set; }
+
+        public string StringCast
+        {
+            get
+            {
+                string str = "";
+                foreach (People actor in ListCast)
+                {
+                    str += $"{actor.Name} ({actor.Character}), ";
+                }
+                return str.Remove(str.Length - 2);
+            }
+        }
+
+        public List<People> _director { private get; set; }
+        public string Director
+        {
+            get
+            {
+                string str = "";
+                foreach (People director in _director)
+                {
+                    str += $"{director.Name}, ";
+                }
+                return str.Remove(str.Length - 2);
             }
         }
     }
