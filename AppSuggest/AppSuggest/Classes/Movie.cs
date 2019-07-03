@@ -50,6 +50,7 @@ namespace AppSuggest
                     return "https://i.imgur.com/VKBcwxH.png";
                 }
             }
+
         }
 
         [JsonProperty("genre_ids")]

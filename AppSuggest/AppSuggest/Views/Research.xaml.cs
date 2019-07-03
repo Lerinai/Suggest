@@ -70,5 +70,10 @@ namespace AppSuggest.Views
         {
             GUIList.ItemsSource = await _restService.GetMoviesAsync($"{Constants.MovieEndPoint}/popular?api_key={Constants.Key}", 1, false);
         }
+
+        private void GetDetails(object sender, ItemTappedEventArgs e)
+        {
+            Navigation.PushAsync(new MovieDetails((Movie)e.Item));
+        }
     }
 }

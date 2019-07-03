@@ -27,16 +27,10 @@ namespace AppSuggest
     public class APICreditResults
     {
         [JsonProperty("cast")]
-        public List<People> CastMembers { get; set; }
+        public List<People> CastMembers { get; }
 
         [JsonProperty("crew")]
-        public List<People> CrewMembers { get; set; }
-    }
-
-    public class APITrailerResults
-    {
-        [JsonProperty("results")]
-        public List<Video> Videos { get; set; }
+        public List<People> CrewMembers { get; }
     }
 
     public class RestService
@@ -48,7 +42,7 @@ namespace AppSuggest
             _client = new HttpClient();
         }
 
-        public async Task<List<Movie>> GetMoviesAsync(string uri, int i = 1, bool _b = true)
+        public async Task<List<Movie>> GetDataAsync(string uri, int i = 1)
         {
             APIMovieResults aPIResult = null;
             List<Movie> movieList = new List<Movie>();
@@ -60,9 +54,9 @@ namespace AppSuggest
                     string content = await response.Content.ReadAsStringAsync();
                     aPIResult = JsonConvert.DeserializeObject<APIMovieResults>(content);
                     movieList.AddRange(aPIResult.ResultsArray);
-                    if (aPIResult.NbPages > i && _b)
+                    if (aPIResult.NbPages > i)
                     {
-                        movieList.AddRange(await GetMoviesAsync(uri, i + 1));
+                        movieList.AddRange(await GetDataAsync(uri, i + 1));
                     }
                 }
             }
@@ -99,7 +93,7 @@ namespace AppSuggest
             APICreditResults aPIResult = null;
             try
             {
-                HttpResponseMessage response = await _client.GetAsync($"{Constants.MovieEndPoint}/{movie.ID}/credits?api_key={Constants.Key}");
+                HttpResponseMessage response = await _client.GetAsync($"{Constants.MovieDetailsEndPoint}/{movie.ID}/credits?api_key={Constants.Key}");
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
@@ -113,39 +107,6 @@ namespace AppSuggest
 
             aPIResult.CastMembers.AddRange(aPIResult.CrewMembers);
             return aPIResult.CastMembers;
-        }
-
-        public async Task<string> GetTrailerAsync(Movie movie)
-        {
-            APITrailerResults aPIResult = null;
-            try
-            {
-                HttpResponseMessage response = await _client.GetAsync($"{Constants.MovieEndPoint}/{movie.ID}/videos?api_key={Constants.Key}");
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-                    aPIResult = JsonConvert.DeserializeObject<APITrailerResults>(content);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("\tERROR {0}", ex.Message);
-            }
-
-            for (int i = 0; i < aPIResult.Videos.Count; i++)
-            {
-                if (aPIResult.Videos[i].Type != "Trailer" || aPIResult.Videos[i].Site != "Youtube")
-                    aPIResult.Videos.RemoveAt(i);
-            }
-
-            try
-            {
-                return aPIResult.Videos[0].Key;
-            }
-            catch
-            {
-                return "";
-            }
         }
     }
 }

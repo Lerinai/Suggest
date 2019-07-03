@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+<<<<<<< HEAD
 namespace AppSuggest.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MovieDetails : ContentPage
     {
+        RestService _restService;
+
         Movie movie;
         public MovieDetails(Movie m)
         {

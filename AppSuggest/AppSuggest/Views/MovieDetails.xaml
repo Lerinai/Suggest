@@ -7,14 +7,16 @@
              x:Class="AppSuggest.Views.MovieDetails">
     <ContentPage.Content>
         <StackLayout Margin="10">
+    <ContentPage.Content>
+        <StackLayout>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="40*"/>
                     <ColumnDefinition Width="60*"/>
