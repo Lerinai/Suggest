@@ -85,5 +85,15 @@ namespace AppSuggest
                 return str.Remove(str.Length - 2);
             }
         }
+
+        public string _trailerPath { private get; set; }
+
+        public string TrailerURL
+        {
+            get
+            {
+                return Constants.YoutubeEndPoint + _trailerPath;
+            }
+        }
     }
 }

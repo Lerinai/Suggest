@@ -22,8 +22,8 @@
                 </Grid.ColumnDefinitions>
                 <Image
                     Grid.Column="0"
-                    Grid.RowSpan="4"
                     Grid.Row="0"
+                    Grid.RowSpan="4"
                     HorizontalOptions="StartAndExpand"
                     Source="{Binding PosterURL}"/>
                 <Label
@@ -47,12 +47,21 @@
                     Grid.Row="3"
                     Text="{Binding ReleaseYear}"/>
                 <Label/>
-            </Grid>
-            <Label Text="{Binding Overview}"
-                   Grid.ColumnSpan="1"
+                <Label
                    Grid.Column="0"
+                   Grid.ColumnSpan="2"
                    Grid.Row="4"
-                   HorizontalTextAlignment="Center"/>
+                   Text="{Binding Overview}"/>
+            </Grid>
+            <Label
+                Text="TRAILER"
+                FontSize="50">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="Launch_trailer"
+                        NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

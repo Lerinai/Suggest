@@ -33,6 +33,12 @@ namespace AppSuggest
         public List<People> CrewMembers { get; set; }
     }
 
+    public class APITrailerResults
+    {
+        [JsonProperty("results")]
+        public List<Video> Videos { get; set; }
+    }
+
     public class RestService
     {
         HttpClient _client;
@@ -107,6 +113,39 @@ namespace AppSuggest
 
             aPIResult.CastMembers.AddRange(aPIResult.CrewMembers);
             return aPIResult.CastMembers;
+        }
+
+        public async Task<string> GetTrailerAsync(Movie movie)
+        {
+            APITrailerResults aPIResult = null;
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync($"{Constants.MovieDetailsEndPoint}/{movie.ID}/videos?api_key={Constants.Key}");
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    aPIResult = JsonConvert.DeserializeObject<APITrailerResults>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            for (int i = 0; i < aPIResult.Videos.Count; i++)
+            {
+                if (aPIResult.Videos[i].Type != "Trailer")
+                    aPIResult.Videos.RemoveAt(i);
+            }
+
+            try
+            {
+                return aPIResult.Videos[0].Key;
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }
