@@ -19,5 +19,10 @@ namespace AppSuggest
 
             InitializeComponent();
         }
+
+        private void Launch_trailer(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri(movie.TrailerURL));
+        }
     }
 }

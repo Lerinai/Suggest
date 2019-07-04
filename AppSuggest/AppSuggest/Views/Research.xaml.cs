@@ -25,10 +25,10 @@ namespace AppSuggest
 
         async void Research_clicked(object sender, EventArgs args)
         {
-            if (Genre.Genres == null)
+            /*if (Genre.Genres == null)
             {
                 Genre.Genres = await _restService.GetGenresAsync();
-            }
+            }*/
             if (!string.IsNullOrWhiteSpace(movieSearchBar.Text))
             {
                 MovieList = await _restService.GetMoviesAsync(GenerateRequestUri(Constants.MovieResearchEndPoint));
@@ -48,7 +48,10 @@ namespace AppSuggest
         private async void GetDetails(object sender, ItemTappedEventArgs e)
         {
             Movie movie = e.Item as Movie;
-            await GetCastAndCrew(movie);
+            Task<Movie> CastAndCrewPromise = GetCastAndCrew(movie);
+            Task<Movie> TrailerPromise = GetTrailer(movie);
+            await CastAndCrewPromise;
+            await TrailerPromise;
             Navigation.PushAsync(new MovieDetails(movie));
         }
 
@@ -65,6 +68,12 @@ namespace AppSuggest
                                where person.Job == "Director"
                                select person).ToList();
 
+            return movie;
+        }
+
+        public async Task<Movie> GetTrailer(Movie movie)
+        {
+            movie._trailerPath = await _restService.GetTrailerAsync(movie);
             return movie;
         }
     }
