@@ -27,10 +27,10 @@ namespace AppSuggest
     public class APICreditResults
     {
         [JsonProperty("cast")]
-        public List<People> CastMembers { get; }
+        public List<People> CastMembers { get; set; }
 
         [JsonProperty("crew")]
-        public List<People> CrewMembers { get; }
+        public List<People> CrewMembers { get; set; }
     }
 
     public class RestService
@@ -42,7 +42,7 @@ namespace AppSuggest
             _client = new HttpClient();
         }
 
-        public async Task<List<Movie>> GetDataAsync(string uri, int i = 1)
+        public async Task<List<Movie>> GetMoviesAsync(string uri, int i = 1)
         {
             APIMovieResults aPIResult = null;
             List<Movie> movieList = new List<Movie>();
@@ -56,7 +56,7 @@ namespace AppSuggest
                     movieList.AddRange(aPIResult.ResultsArray);
                     if (aPIResult.NbPages > i)
                     {
-                        movieList.AddRange(await GetDataAsync(uri, i + 1));
+                        movieList.AddRange(await GetMoviesAsync(uri, i + 1));
                     }
                 }
             }

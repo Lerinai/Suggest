@@ -55,7 +55,7 @@ namespace AppSuggest
         }
 
         [JsonProperty("overview")]
-        public string Overview { get; }
+        public string Overview { get; set; }
 
         public List<People> ListCast { get;  set; }
 

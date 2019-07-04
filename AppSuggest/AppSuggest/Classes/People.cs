@@ -8,12 +8,12 @@ namespace AppSuggest
     public class People
     {
         [JsonProperty("name")]
-        public string Name { get; }
+        public string Name { get; set; }
 
         [JsonProperty("job")]
-        public string Job { get; }
+        public string Job { get; set; }
 
         [JsonProperty("character")]
-        public string Character { get; }
+        public string Character { get; set; }
     }
 }
