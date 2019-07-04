@@ -5,7 +5,7 @@ using System.Linq;
 using LinqToDB;
 using System.Data.Linq;
 
-namespace AppSuggest.Classes
+namespace AppSuggest
 {
     public class User
     {

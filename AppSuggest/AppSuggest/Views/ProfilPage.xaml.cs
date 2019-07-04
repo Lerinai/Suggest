@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 ﻿using AppSuggest.Classes;
+=======
+>>>>>>> Friend profil navigation
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +27,20 @@ namespace AppSuggest.Views
             imageProfil.Source = myUser.image;
             suggestMovie.ItemsSource = myUser.toDoList;
             suggestMovieDone.ItemsSource = myUser.doneMovie;
+            friendList.ItemsSource = myUser.friendList;
+        }
+
+        public ProfilPage(User user, User myFriend)
+        {
+            myUser = user;
+            InitializeComponent();
+            profilName.Text = myFriend.lastName;
+            profilFirstName.Text = myFriend.firstName;
+            imageProfil.Source = myFriend.image;
+            suggestMovie.ItemsSource = myFriend.toDoList;
+            suggestMovieDone.ItemsSource = myFriend.doneMovie;
+            friendList.ItemsSource = myFriend.friendList;
+            editButton.IsVisible = false;
         }
 
         public ProfilPage()
@@ -36,5 +53,25 @@ namespace AppSuggest.Views
         {
             await Navigation.PushAsync(new EditProfilPage(myUser));
         }
+<<<<<<< HEAD
+=======
+        void myFriendClicked(object sender, EventArgs e)
+        {
+            friendList.IsVisible = !friendList.IsVisible;
+        }
+
+        async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                await Navigation.PushAsync(new ProfilPage
+                {
+                    BindingContext = e.SelectedItem as User
+                }
+                                           );
+            }
+        }
+
+>>>>>>> Friend profil navigation
     }
 }

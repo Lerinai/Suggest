@@ -22,6 +22,11 @@
                 Source=""
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Button 
+                x:Name="myFriend"
+                Text="My Friend"
+                Clicked="myFriendClicked"
+                />
             <ListView
                 x:Name="suggestMovie"
                 VerticalOptions="CenterAndExpand"
@@ -30,9 +35,19 @@
                 x:Name="suggestMovieDone"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"/>
+<<<<<<< HEAD
             <Button
+=======
+                <Button x:Name="editButton"
+>>>>>>> Friend profil navigation
                 Text="Edit Profil"
                 Clicked="EditClicked"/>
+            <ListView
+                ItemSelected="OnListViewItemSelected"
+                IsVisible="False"
+                x:Name="friendList"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
