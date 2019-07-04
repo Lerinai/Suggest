@@ -31,7 +31,7 @@ namespace AppSuggest
             }
             if (!string.IsNullOrWhiteSpace(movieSearchBar.Text))
             {
-                MovieList = await _restService.GetDataAsync(GenerateRequestUri(Constants.MovieResearchEndPoint));
+                MovieList = await _restService.GetMoviesAsync(GenerateRequestUri(Constants.MovieResearchEndPoint));
                 GUIList.ItemsSource = MovieList;
                 BindingContext = this;
             }
@@ -45,9 +45,27 @@ namespace AppSuggest
             return requestURL;
         }
 
-        private void GetDetails(object sender, ItemTappedEventArgs e)
+        private async void GetDetails(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushAsync(new MovieDetails((Movie)e.Item));
+            Movie movie = e.Item as Movie;
+            await GetCastAndCrew(movie);
+            Navigation.PushAsync(new MovieDetails(movie));
+        }
+
+        public async Task<Movie> GetCastAndCrew(Movie movie)
+        {
+            List<People> ppl = await _restService.GetPeopleAsync(movie);
+
+            movie.ListCast = (from person in ppl
+                              where person.Character != null
+                              select person).ToList();
+            movie.ListCast.RemoveRange(3, movie.ListCast.Count - 3);
+
+            movie._director = (from person in ppl
+                               where person.Job == "Director"
+                               select person).ToList();
+
+            return movie;
         }
     }
 }

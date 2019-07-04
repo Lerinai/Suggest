@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="AppSuggest.MovieDetails">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -23,31 +23,36 @@
                 <Image
                     Grid.Column="0"
                     Grid.RowSpan="4"
+                    Grid.Row="0"
                     HorizontalOptions="StartAndExpand"
-                    Source="{Binding movie.PosterURL}"/>
+                    Source="{Binding PosterURL}"/>
                 <Label
+                    Margin="10"
                     Grid.Column="1"
                     Grid.Row="0"
                     FontAttributes="Bold"
                     FontSize="Large"
-                    Text="kk{Binding movie.Title}"/>
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Title}"/>
                 <Label
                     Grid.Column="1"
                     Grid.Row="1"
-                    Text="{Binding movie.StringCast}"/>
+                    Text="{Binding StringCast}"/>
                 <Label
                     Grid.Column="1"
                     Grid.Row="2"
-                    Text="{Binding movie.Director}"/>
+                    Text="{Binding Director}"/>
                 <Label
                     Grid.Column="1"
                     Grid.Row="3"
-                    Text="{Binding movie.ReleaseYear}"/>
+                    Text="{Binding ReleaseYear}"/>
                 <Label/>
             </Grid>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Overview}"
+                   Grid.ColumnSpan="1"
+                   Grid.Column="0"
+                   Grid.Row="4"
+                   HorizontalTextAlignment="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
