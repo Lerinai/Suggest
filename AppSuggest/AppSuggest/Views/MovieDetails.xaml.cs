@@ -18,6 +18,10 @@ namespace AppSuggest
             BindingContext = movie;
 
             InitializeComponent();
+            if (movie.TrailerURL == "n/a")
+            {
+                OpenTrailer.IsVisible = false;
+            }
         }
 
         private void Launch_trailer(object sender, EventArgs e)

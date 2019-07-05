@@ -12,5 +12,9 @@ namespace AppSuggest
 
         [JsonProperty("type")]
         public string Type { get; set; }
+
+        [JsonProperty("site")]
+        public string Site { get; set; }
+
     }
 }

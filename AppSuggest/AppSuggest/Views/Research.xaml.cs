@@ -62,7 +62,10 @@ namespace AppSuggest
             movie.ListCast = (from person in ppl
                               where person.Character != null
                               select person).ToList();
-            movie.ListCast.RemoveRange(3, movie.ListCast.Count - 3);
+            try
+            {
+                movie.ListCast.RemoveRange(3, movie.ListCast.Count - 3);
+            } catch { }
 
             movie._director = (from person in ppl
                                where person.Job == "Director"
