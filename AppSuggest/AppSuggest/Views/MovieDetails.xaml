@@ -25,6 +25,7 @@
                     Grid.Row="0"
                     Grid.RowSpan="4"
                     HorizontalOptions="StartAndExpand"
+                    x:Name="ImgPosters"
                     Source="{Binding PosterURL}"/>
                 <Label
                     Margin="10"
@@ -55,7 +56,8 @@
             </Grid>
             <Label
                 Text="TRAILER"
-                FontSize="50">
+                FontSize="50"
+                x:Name="OpenTrailer">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer
                         Tapped="Launch_trailer"

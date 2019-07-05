@@ -60,7 +60,7 @@ namespace AppSuggest
                     string content = await response.Content.ReadAsStringAsync();
                     aPIResult = JsonConvert.DeserializeObject<APIMovieResults>(content);
                     movieList.AddRange(aPIResult.ResultsArray);
-                    if (aPIResult.NbPages > i)
+                    if (aPIResult.NbPages > i && i < 6)
                     {
                         movieList.AddRange(await GetMoviesAsync(uri, i + 1));
                     }
@@ -69,6 +69,12 @@ namespace AppSuggest
             catch (Exception ex)
             {
                 Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            for (int j = 0; j < movieList.Count; j++)
+            {
+                if (movieList[j].Genres == "")
+                    movieList.RemoveAt(j);
             }
 
             return movieList;
@@ -134,7 +140,7 @@ namespace AppSuggest
 
             for (int i = 0; i < aPIResult.Videos.Count; i++)
             {
-                if (aPIResult.Videos[i].Type != "Trailer")
+                if (aPIResult.Videos[i].Type != "Trailer" || aPIResult.Videos[i].Site != "Youtube")
                     aPIResult.Videos.RemoveAt(i);
             }
 
@@ -144,7 +150,7 @@ namespace AppSuggest
             }
             catch
             {
-                throw;
+                return "";
             }
         }
     }
