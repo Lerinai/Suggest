@@ -47,7 +47,7 @@ namespace AppSuggest
                 }
                 else
                 {
-                    return "https://drive.google.com/file/d/1aOw6cdsSY8NOkhYJiOKgjrCt_R8fyIiB/view?usp=sharing";
+                    return "https://i.imgur.com/VKBcwxH.png";
                 }
             }
         }
