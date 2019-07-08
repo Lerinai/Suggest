@@ -19,30 +19,16 @@ namespace AppSuggest
         {
             _restService = new RestService();
             InitializeComponent();
-
-            BindingContext = this;
+            GetPopular();
         }
 
         async void Research_clicked(object sender, EventArgs args)
         {
-            /*if (Genre.Genres == null)
-            {
-                Genre.Genres = await _restService.GetGenresAsync();
-            }*/
             if (!string.IsNullOrWhiteSpace(movieSearchBar.Text))
             {
-                MovieList = await _restService.GetMoviesAsync(GenerateRequestUri(Constants.MovieResearchEndPoint));
+                MovieList = await _restService.GetMoviesAsync($"{Constants.MovieResearchEndPoint}?api_key={Constants.Key}&query={movieSearchBar.Text.Replace(' ', '+')}");
                 GUIList.ItemsSource = MovieList;
-                BindingContext = this;
             }
-        }
-        
-        string GenerateRequestUri(string endpoint)
-        {
-            string requestURL = endpoint;
-            requestURL += $"?api_key={Constants.Key}";
-            requestURL += $"&query={movieSearchBar.Text.Replace(' ', '+')}";
-            return requestURL;
         }
 
         private async void GetDetails(object sender, ItemTappedEventArgs e)
@@ -78,6 +64,11 @@ namespace AppSuggest
         {
             movie._trailerPath = await _restService.GetTrailerAsync(movie);
             return movie;
+        }
+
+        public async void GetPopular()
+        {
+            GUIList.ItemsSource = await _restService.GetMoviesAsync($"{Constants.MovieEndPoint}/popular?api_key={Constants.Key}", 1, false);
         }
     }
 }

@@ -14,7 +14,6 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="40*"/>
@@ -22,20 +21,22 @@
                 </Grid.ColumnDefinitions>
                 <Image
                     Grid.Column="0"
-                    Grid.Row="0"
-                    Grid.RowSpan="4"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
                     HorizontalOptions="StartAndExpand"
                     x:Name="ImgPosters"
                     Source="{Binding PosterURL}"/>
                 <Label
                     Margin="10"
-                    Grid.Column="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
                     Grid.Row="0"
                     FontAttributes="Bold"
                     FontSize="Large"
                     HorizontalTextAlignment="Center"
                     Text="{Binding Title}"/>
-                <Label
+                <Label 
+                    Margin="0, 30, 0, 0"
                     Grid.Column="1"
                     Grid.Row="1"
                     Text="{Binding StringCast}"/>
