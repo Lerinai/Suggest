@@ -48,7 +48,7 @@ namespace AppSuggest
             _client = new HttpClient();
         }
 
-        public async Task<List<Movie>> GetMoviesAsync(string uri, int i = 1)
+        public async Task<List<Movie>> GetMoviesAsync(string uri, int i = 1, bool _b = true)
         {
             APIMovieResults aPIResult = null;
             List<Movie> movieList = new List<Movie>();
@@ -60,7 +60,7 @@ namespace AppSuggest
                     string content = await response.Content.ReadAsStringAsync();
                     aPIResult = JsonConvert.DeserializeObject<APIMovieResults>(content);
                     movieList.AddRange(aPIResult.ResultsArray);
-                    if (aPIResult.NbPages > i && i < 6)
+                    if (aPIResult.NbPages > i && _b)
                     {
                         movieList.AddRange(await GetMoviesAsync(uri, i + 1));
                     }
@@ -69,12 +69,6 @@ namespace AppSuggest
             catch (Exception ex)
             {
                 Debug.WriteLine("\tERROR {0}", ex.Message);
-            }
-
-            for (int j = 0; j < movieList.Count; j++)
-            {
-                if (movieList[j].Genres == "")
-                    movieList.RemoveAt(j);
             }
 
             return movieList;
@@ -105,7 +99,7 @@ namespace AppSuggest
             APICreditResults aPIResult = null;
             try
             {
-                HttpResponseMessage response = await _client.GetAsync($"{Constants.MovieDetailsEndPoint}/{movie.ID}/credits?api_key={Constants.Key}");
+                HttpResponseMessage response = await _client.GetAsync($"{Constants.MovieEndPoint}/{movie.ID}/credits?api_key={Constants.Key}");
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
@@ -126,7 +120,7 @@ namespace AppSuggest
             APITrailerResults aPIResult = null;
             try
             {
-                HttpResponseMessage response = await _client.GetAsync($"{Constants.MovieDetailsEndPoint}/{movie.ID}/videos?api_key={Constants.Key}");
+                HttpResponseMessage response = await _client.GetAsync($"{Constants.MovieEndPoint}/{movie.ID}/videos?api_key={Constants.Key}");
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();

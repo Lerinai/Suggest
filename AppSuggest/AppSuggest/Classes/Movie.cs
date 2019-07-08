@@ -41,13 +41,13 @@ namespace AppSuggest
         {
             get
             {
-                try
+                if (_posterPath != null)
                 {
                     return $"{Constants.PosterEndPoint}/w500{_posterPath}";
                 }
-                catch
+                else
                 {
-                    return "n/a";
+                    return "https://drive.google.com/file/d/1aOw6cdsSY8NOkhYJiOKgjrCt_R8fyIiB/view?usp=sharing";
                 }
             }
         }
@@ -92,7 +92,7 @@ namespace AppSuggest
                 {
                     foreach (People actor in ListCast)
                     {
-                        str += $"{actor.Name} ({actor.Character}), ";
+                        str += $"{actor.Name}, ";
                     }
                     return str.Remove(str.Length - 2);
                 }
