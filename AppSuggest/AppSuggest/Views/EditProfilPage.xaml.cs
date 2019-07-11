@@ -1,4 +1,4 @@
-﻿using AppSuggest.Classes;
+﻿using AppSuggest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace AppSuggest.Views
 
         async void ValideEditClicked(object sender, EventArgs e)
         {
-            if(profilFirstName.Text != "" && profilName.Text != "" && imageProfil.Source != null && passWord == passWordVerif)
+            if(profilFirstName.Text != "" && profilName.Text != "" &&/* imageProfil.Source != null &&*/ passWord == passWordVerif)
             {
                 myUser.lastName = profilName.Text;
                 myUser.firstName = profilFirstName.Text;
