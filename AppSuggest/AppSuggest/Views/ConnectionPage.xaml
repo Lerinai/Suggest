@@ -16,6 +16,9 @@
                     Text="Enter"
                     Clicked="EnterClicked"/>
             <Label Text="-or-"/>
+            <Button x:Name="SignIn"
+                    Text="Create account"
+                    Clicked="CreateAccountClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

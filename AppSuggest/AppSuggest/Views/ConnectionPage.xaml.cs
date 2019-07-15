@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -38,6 +38,11 @@ namespace AppSuggest
 
             //}
             await Navigation.PushAsync(new MainPage());
+        }
+
+        async void CreateAccountClicked(object sender, EventArgs e)
+        {
+            await Browser.OpenAsync("https://signup-suggest.capelli-home.com");
         }
     }
 }
