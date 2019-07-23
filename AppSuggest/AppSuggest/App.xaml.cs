@@ -1,4 +1,5 @@
-﻿using AppSuggest.Views;
+﻿using AppSuggest.Caroussel;
+using AppSuggest.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace AppSuggest
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new WelcomePage());
+            MainPage = new NavigationPage(new HomePage());
         }
 
         protected async override void OnStart()
@@ -29,5 +30,6 @@ namespace AppSuggest
         {
             // Handle when your app resumes
         }
+
     }
 }

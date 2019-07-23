@@ -5,7 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="AppSuggest.Views.HomePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="⠇" Clicked="Setting_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
+<<<<<<< HEAD
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
             <Label Text="Bienvenue" FontSize="30" FontAttributes="Bold"></Label>
             <Label Text="-Connect with a Suggest account-"/>
@@ -17,6 +21,34 @@
                     Text="Enter"
                     Clicked="EnterClicked"/>
             <Label Text="-or-"/>
+=======
+
+
+
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" Spacing="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <AbsoluteLayout>
+                    <BoxView BackgroundColor="#2196F3"
+                         AbsoluteLayout.LayoutBounds="0.5,0.5,200,200"
+                             AbsoluteLayout.LayoutFlags="PositionProportional"
+                             />
+                </AbsoluteLayout>
+
+                <Label Margin="70,100,70,50" TextColor="white" FontSize="30"
+                       FontAttributes="Bold" Text="SUGGEST" HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="1">
+                </Label>
+            </Grid>
+>>>>>>> Ajouts des views nav
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

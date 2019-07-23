@@ -55,6 +55,33 @@
     <EmbeddedResource Update="Research.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  <EmbeddedResource Update="Caroussel\CarouselTest.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
+  <EmbeddedResource Update="Caroussel\Shared.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
+  <EmbeddedResource Update="ConnectionPage.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
+  <EmbeddedResource Update="Log\LoginPage.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
+  <EmbeddedResource Update="Views\About.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
+  <EmbeddedResource Update="Views\Category.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
+  <EmbeddedResource Update="Views\NavPage.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
+  <EmbeddedResource Update="Views\Profil.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
+  <EmbeddedResource Update="Views\Setting.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
