@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppSuggest.Views.NavPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="moviesearch.png" />
+            <Button x:Name="home" Text="Home" 
+                    Margin="0,0,0,10" TextColor="#444" FontSize="15"
+                    BackgroundColor="{StaticResource shadowColor}" HorizontalOptions="Center" 
+                            WidthRequest="120" 
+                            />
+            <Button x:Name="profil" Text="Profil" 
+                    Margin="0,0,0,10" TextColor="#444" FontSize="15"
+                    BackgroundColor="{StaticResource shadowColor}" HorizontalOptions="Center" 
+                            WidthRequest="120" 
+                            Clicked="Profil_Button"/>
+            <Button x:Name="search" Text="Search Movie" 
+                    Margin="0,0,0,10" TextColor="#444" FontSize="15"
+                    BackgroundColor="{StaticResource shadowColor}" HorizontalOptions="Center" 
+                            WidthRequest="120" 
+                            Clicked="Search_Button"/>
+            <Button x:Name="category" Text="Category" 
+                    Margin="0,0,0,10" TextColor="#444" FontSize="15"
+                    BackgroundColor="{StaticResource shadowColor}" HorizontalOptions="Center" 
+                            WidthRequest="120" 
+                            Clicked="Category_Button"/>
+            <Button x:Name="setting" Text="Setting" 
+                    Margin="0,0,0,10" TextColor="#444" FontSize="15"
+                    BackgroundColor="{StaticResource shadowColor}" HorizontalOptions="Center" 
+                            WidthRequest="120" 
+                            Clicked="Setting_Button"/>
+            <Button x:Name="about" Text="About" 
+                    Margin="0,0,0,10" TextColor="#444" FontSize="15"
+                    BackgroundColor="{StaticResource shadowColor}" HorizontalOptions="Center" 
+                            WidthRequest="120" 
+                            Clicked="About_Button"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

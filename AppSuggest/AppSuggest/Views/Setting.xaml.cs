@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace AppSuggest.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WelcomePage : ContentPage
+    public partial class Setting : ContentPage
     {
-        public WelcomePage()
+        public Setting()
         {
             InitializeComponent();
-        }
-
-        private void Start(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new HomePage());
         }
     }
 }

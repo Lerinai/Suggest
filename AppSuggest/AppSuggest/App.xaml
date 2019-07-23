@@ -7,7 +7,7 @@
              x:Class="AppSuggest.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="pageBackgroundColor">#3399FF</Color>
+            <Color x:Key="pageBackgroundColor">#FFF</Color>
             <Style TargetType="NavigationPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="{StaticResource pageBackgroundColor}"/>
             </Style>
@@ -15,7 +15,7 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource pageBackgroundColor}"/>
             </Style>
             <Color x:Key="titleColor">#fff</Color>
-            <Color x:Key="shadowColor">#FFD700</Color>
+            <Color x:Key="shadowColor">#F5BE22</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

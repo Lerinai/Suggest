@@ -7,19 +7,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AppSuggest.Views
+namespace AppSuggest.Caroussel
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WelcomePage : ContentPage
+    public partial class CarouselTest : ContentView
     {
-        public WelcomePage()
+        public CarouselTest()
         {
             InitializeComponent();
         }
 
-        private void Start(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new HomePage());
-        }
     }
 }
