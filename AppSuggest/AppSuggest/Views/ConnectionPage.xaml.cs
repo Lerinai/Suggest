@@ -12,37 +12,102 @@ namespace AppSuggest
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ConnectionPage : ContentPage
     {
+        Account account;
+        AccountStore store;
         public ConnectionPage()
         {
             InitializeComponent();
+            store = AccountStore.Create();
         }
 
         async void EnterClicked(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    List<User> connectionUser = from user in 
-            //                          where user.email == email.Text && user.password == password.Text
-            //                          select user;
-            //    if(connectionUser.Count == 1)
-            //    {
-            //        await Navigation.PushAsync(new MainPage());
-            //    }
-            //    else
-            //    {
-            //        await DisplayAlert("Connection failed", "Password or email invalid try again or create account", "OK");
-            //    }
-            //}
-            //catch
-            //{
+            string clientId = null;
+            string redirectUri = null;
 
-            //}
-            await Navigation.PushAsync(new MainPage());
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    clientId = Constants.iOSClientId;
+                    redirectUri = Constants.iOSRedirectUrl;
+                    break;
+
+                case Device.Android:
+                    clientId = Constants.AndroidClientId;
+                    redirectUri = Constants.AndroidRedirectUrl;
+                    break;
+            }
+
+            account = store.FindAccountsForService(Constants.AppName).FirstOrDefault();
+
+            var authenticator = new OAuth2Authenticator(
+                clientId,
+                null,
+                Constants.Scope,
+                new Uri(Constants.AuthorizeUrl),
+                new Uri(redirectUri),
+                new Uri(Constants.AccessTokenUrl),
+                null,
+                true);
+
+            authenticator.Completed += OnAuthCompleted;
+            authenticator.Error += OnAuthError;
+
+            AuthenticationState.Authenticator = authenticator;
+
+            var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
+            presenter.Login(authenticator);
         }
 
         async void CreateAccountClicked(object sender, EventArgs e)
         {
             await Browser.OpenAsync("https://signup-suggest.capelli-home.com");
+        }
+
+        async void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs e)
+        {
+            var authenticator = sender as OAuth2Authenticator;
+            if (authenticator != null)
+            {
+                authenticator.Completed -= OnAuthCompleted;
+                authenticator.Error -= OnAuthError;
+            }
+
+            User user = null;
+            if (e.IsAuthenticated)
+            {
+                // If the user is authenticated, request their basic user data from Google
+                // UserInfoUrl = https://www.googleapis.com/oauth2/v2/userinfo
+                var request = new OAuth2Request("GET", new Uri(Constants.UserInfoUrl), null, e.Account);
+                var response = await request.GetResponseAsync();
+                if (response != null)
+                {
+                    // Deserialize the data and store it in the account store
+                    // The users email address will be used to identify data in SimpleDB
+                    string userJson = await response.GetResponseTextAsync();
+                    user = JsonConvert.DeserializeObject<User>(userJson);
+                }
+
+                if (account != null)
+                {
+                    store.Delete(account, Constants.AppName);
+                }
+
+                await store.SaveAsync(account = e.Account, Constants.AppName);
+                await DisplayAlert("Email address", user.Email, "OK");
+            }
+        }
+
+        void OnAuthError(object sender, AuthenticatorErrorEventArgs e)
+        {
+            var authenticator = sender as OAuth2Authenticator;
+            if (authenticator != null)
+            {
+                authenticator.Completed -= OnAuthCompleted;
+                authenticator.Error -= OnAuthError;
+            }
+
+            Debug.WriteLine("Authentication error: " + e.Message);
         }
     }
 }
