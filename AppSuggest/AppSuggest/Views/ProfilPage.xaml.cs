@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 
-﻿using AppSuggest.Classes;
-=======
->>>>>>> Friend profil navigation
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,8 +49,6 @@ namespace AppSuggest.Views
         {
             await Navigation.PushAsync(new EditProfilPage(myUser));
         }
-<<<<<<< HEAD
-=======
         void myFriendClicked(object sender, EventArgs e)
         {
             friendList.IsVisible = !friendList.IsVisible;
@@ -71,7 +65,5 @@ namespace AppSuggest.Views
                                            );
             }
         }
-
->>>>>>> Friend profil navigation
     }
 }
