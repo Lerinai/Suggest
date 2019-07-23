@@ -26,7 +26,7 @@ namespace AppSuggest
         }
 
         private string _lastName;
-            
+
         public string lastName
         {
             get { return _lastName; }
@@ -70,7 +70,7 @@ namespace AppSuggest
             DataContext db = new DataContext(@"c:\linqtest5\northwnd.mdf"); // db link
 
             // received user session 
-            
+
             //ID = ; requete id
             //email = ; requete email
             //firstName = ; requete firstname
