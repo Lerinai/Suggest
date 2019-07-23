@@ -19,31 +19,56 @@ namespace AppSuggest
         {
             _restService = new RestService();
             InitializeComponent();
-
-            BindingContext = this;
+            GetPopular();
         }
 
         async void Research_clicked(object sender, EventArgs args)
         {
-            if (Genre.Genres == null)
-            {
-                Genre.Genres = await _restService.GetGenresAsync();
-            }
             if (!string.IsNullOrWhiteSpace(movieSearchBar.Text))
             {
-                MovieList = await _restService.GetDataAsync(GenerateRequestUri(Constants.MovieResearchEndPoint));
+                MovieList = await _restService.GetMoviesAsync($"{Constants.MovieResearchEndPoint}?api_key={Constants.Key}&query={movieSearchBar.Text.Replace(' ', '+')}");
                 GUIList.ItemsSource = MovieList;
-                BindingContext = this;
             }
         }
-        
-        string GenerateRequestUri(string endpoint)
+
+        private async void GetDetails(object sender, ItemTappedEventArgs e)
         {
-            string requestURL = endpoint;
-            requestURL += $"?api_key={Constants.Key}";
-            requestURL += $"&query={movieSearchBar.Text.Replace(' ', '+')}";
-            return requestURL;
+            Movie movie = e.Item as Movie;
+            Task<Movie> CastAndCrewPromise = GetCastAndCrew(movie);
+            Task<Movie> TrailerPromise = GetTrailer(movie);
+            await CastAndCrewPromise;
+            await TrailerPromise;
+            Navigation.PushAsync(new MovieDetails(movie));
         }
 
+        public async Task<Movie> GetCastAndCrew(Movie movie)
+        {
+            List<People> ppl = await _restService.GetPeopleAsync(movie);
+
+            movie.ListCast = (from person in ppl
+                              where person.Character != null
+                              select person).ToList();
+            try
+            {
+                movie.ListCast.RemoveRange(3, movie.ListCast.Count - 3);
+            } catch { }
+
+            movie._director = (from person in ppl
+                               where person.Job == "Director"
+                               select person).ToList();
+
+            return movie;
+        }
+
+        public async Task<Movie> GetTrailer(Movie movie)
+        {
+            movie._trailerPath = await _restService.GetTrailerAsync(movie);
+            return movie;
+        }
+
+        public async void GetPopular()
+        {
+            GUIList.ItemsSource = await _restService.GetMoviesAsync($"{Constants.MovieEndPoint}/popular?api_key={Constants.Key}", 1, false);
+        }
     }
 }

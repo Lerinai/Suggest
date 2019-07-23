@@ -9,27 +9,20 @@
         <StackLayout>
             <Grid HeightRequest="60"
                   VerticalOptions="Start" HorizontalOptions="FillAndExpand"
-                  BackgroundColor="LightGray" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width=".5*"/>
-                    <ColumnDefinition Width="99*"/>
-                    <ColumnDefinition Width=".5*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="5"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="5"/>
-                </Grid.RowDefinitions>
+                  BackgroundColor="LightGray" Padding="5">
                 <SearchBar x:Name="movieSearchBar"
-                    Placeholder="Find a movie" Grid.Column="1" Grid.Row="1"
-                    VerticalOptions="Fill" HorizontalOptions="FillAndExpand"
+                    Placeholder="Find a movie"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="FillAndExpand"
                     BackgroundColor="White"
-                    SearchButtonPressed="Research_clicked"/>
+                    SearchButtonPressed="Research_clicked"
+                    Margin="1"/>
             </Grid>
             <ListView ItemsSource="{Binding movieList}"
                 HasUnevenRows="true"
                 BackgroundColor="Pink"
-                      x:Name="GUIList">
+                x:Name="GUIList"
+                ItemTapped="GetDetails">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -43,11 +36,14 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.RowSpan="3"
+                                <Image 
+                                    Grid.RowSpan="3"
+                                    Grid.Column="0"
                                     Source="{Binding PosterURL}"
-                                    Aspect="AspectFill"
-                                    WidthRequest="60" />
+                                    Aspect="AspectFit"
+                                    WidthRequest="60"/>
                                 <Label
+                                    Grid.Row="0"
                                     Grid.Column="1"
                                     Text="{Binding Title}"
                                     FontAttributes="Bold"/>
@@ -58,7 +54,7 @@
                                 <Label
                                     Grid.Row="2"
                                     Grid.Column="1"
-                                    Text="{Binding ReleaseDate}"
+                                    Text="{Binding ReleaseYear}"
                                     VerticalOptions="End"/>
                             </Grid>
                         </ViewCell>

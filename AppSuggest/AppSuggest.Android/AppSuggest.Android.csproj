@@ -133,6 +133,9 @@
     <AndroidResource Include="Resources\drawable\perroquet2.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\movie2.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash.9.png" />
   </ItemGroup>
   <ItemGroup>

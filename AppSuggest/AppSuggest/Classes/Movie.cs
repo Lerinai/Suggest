@@ -19,11 +19,18 @@ namespace AppSuggest
         [JsonProperty("release_date")]
         private string _releaseDate { get; set; }
 
-        public string ReleaseDate
+        public string ReleaseYear
         {
             get
             {
-                return _releaseDate.Substring(0, 4);
+                try
+                {
+                    return _releaseDate.Substring(0, 4);
+                }
+                catch
+                {
+                    return "Unknown";
+                }
             }
         }
 
@@ -32,8 +39,17 @@ namespace AppSuggest
 
         public string PosterURL
         {
-            get { return $"{Constants.PosterEndPoint}/w500/{_posterPath}"; }
-            private set { }
+            get
+            {
+                if (_posterPath != null)
+                {
+                    return $"{Constants.PosterEndPoint}/w500{_posterPath}";
+                }
+                else
+                {
+                    return "https://i.imgur.com/VKBcwxH.png";
+                }
+            }
         }
 
         [JsonProperty("genre_ids")]
@@ -44,14 +60,85 @@ namespace AppSuggest
             get
             {
                 string str = "";
-                foreach(Genre genre in from genreid in _genres
+                try
+                {
+                    foreach (Genre genre in from genreid in _genres
                                             from genreapi in Genre.Genres
                                             where genreid == genreapi.ID
                                             select genreapi)
-                {
-                    str += genre.Name + ", ";
+                    {
+                        str += genre.Name + ", ";
+                    }
+                    return str.Remove(str.Length - 2);
                 }
-                return str.Remove(str.Length-2);
+                catch
+                {
+                    return "Unknown";
+                }
+            }
+        }
+
+        [JsonProperty("overview")]
+        public string Overview { get; set; }
+
+        public List<People> ListCast { get;  set; }
+
+        public string StringCast
+        {
+            get
+            {
+                string str = "";
+                try
+                {
+                    foreach (People actor in ListCast)
+                    {
+                        str += $"{actor.Name}, ";
+                    }
+                    return str.Remove(str.Length - 2);
+                }
+                catch
+                {
+                    return "Unknown";
+                }
+            }
+        }
+
+        public List<People> _director { private get; set; }
+        public string Director
+        {
+            get
+            {
+                string str = "";
+                try
+                {
+                    foreach (People director in _director)
+                    {
+                        str += $"{director.Name}, ";
+                    }
+                    str = str.Remove(str.Length - 2);
+                    return str;
+                }
+                catch
+                {
+                    return "Unknown";
+                }
+            }
+        }
+
+        public string _trailerPath { private get; set; }
+
+        public string TrailerURL
+        {
+            get
+            {
+                if (_trailerPath != "")
+                {
+                    return Constants.YoutubeEndPoint + _trailerPath;
+                }
+                else
+                {
+                    return "n/a";
+                }
             }
         }
     }

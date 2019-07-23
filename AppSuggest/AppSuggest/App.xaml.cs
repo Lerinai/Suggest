@@ -14,9 +14,10 @@ namespace AppSuggest
             MainPage = new NavigationPage(new MainPage());
         }
 
-        protected override void OnStart()
+        protected async override void OnStart()
         {
-            // Handle when your app starts
+            RestService _restService = new RestService();
+            Genre.Genres = await _restService.GetGenresAsync(); //Get the list of all genres
         }
 
         protected override void OnSleep()

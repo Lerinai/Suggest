@@ -16,5 +16,10 @@ namespace AppSuggest.Views
         {
             InitializeComponent();
         }
+
+        private void Start(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Research());
+        }
     }
 }
