@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AppSuggest
+namespace AppSuggest.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Research : ContentPage
