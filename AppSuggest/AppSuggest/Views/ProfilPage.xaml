@@ -35,11 +35,7 @@
                 x:Name="suggestMovieDone"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"/>
-<<<<<<< HEAD
-            <Button
-=======
-                <Button x:Name="editButton"
->>>>>>> Friend profil navigation
+            <Button x:Name="editButton"
                 Text="Edit Profil"
                 Clicked="EditClicked"/>
             <ListView

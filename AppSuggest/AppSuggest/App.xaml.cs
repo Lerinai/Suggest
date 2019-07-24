@@ -11,7 +11,7 @@ namespace AppSuggest
         {
             InitializeComponent();
 
-            MainPage = new OAuthNativeFlowPage();
+            MainPage = new ConnectionPage();
         }
 
         protected async override void OnStart()

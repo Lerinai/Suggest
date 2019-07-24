@@ -109,5 +109,14 @@ namespace AppSuggest
 
             Debug.WriteLine("Authentication error: " + e.Message);
         }
+        async void EnterFbCoClicked(object sender, AuthenticatorCompletedEventArgs e)
+        {
+            await Navigation.PushAsync = new FacebookConnectionPage();
+        }
+
+        async void EnterGoogleCoClicked(object sender, AuthenticatorCompletedEventArgs e)
+        {
+            await Navigation.PushAsync = new GoogleConnectionPage();
+        }
     }
 }
