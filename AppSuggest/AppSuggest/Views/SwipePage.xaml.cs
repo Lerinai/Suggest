@@ -17,8 +17,6 @@ namespace AppSuggest.Views
 
         public SwipePage()
         {
-            InitializeComponent();
-
             menuItems = new List<SwipeMenuItem>
             {
                 new SwipeMenuItem {Id = MenuItemType.Feed, Title = "Feed"},
@@ -27,18 +25,20 @@ namespace AppSuggest.Views
                 new SwipeMenuItem {Id = MenuItemType.Profile, Title="Profile" },
                 new SwipeMenuItem {Id = MenuItemType.Settings, Title="Settings" },
                 new SwipeMenuItem {Id = MenuItemType.About, Title="About" },
-                new SwipeMenuItem {Id = MenuItemType.Logout, Title="Log out" },
+               // new SwipeMenuItem {Id = MenuItemType.Logout, Title="Log out" },
             };
+
+            InitializeComponent();
 
             ListViewMenu.ItemsSource = menuItems;
 
-            ListViewMenu.SelectedItem = menuItems[0];
+            ListViewMenu.SelectedItem = menuItems[1];
             ListViewMenu.ItemSelected += async (sender, e) =>
             {
                 if (e.SelectedItem == null)
                     return;
-
-                await RootPage.NavigateFromMenu(((SwipeMenuItem)e.SelectedItem).Id);
+                Console.WriteLine((int)((SwipeMenuItem)e.SelectedItem).Id);
+                await RootPage.NavigateFromMenu((int)((SwipeMenuItem)e.SelectedItem).Id);
             };
         }
     }

@@ -5,10 +5,10 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:views="clr-namespace:AppSuggest.Views"
-            x:Class="AppSuggest.Views.MainPage"> 
+            x:Class="AppSuggest.Views.MainPage">
 
     <MasterDetailPage.Master>
-        <views:SwipePage />
+        <views:SwipePage/>
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>
@@ -19,7 +19,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:SwipePage />
+                <views:Research />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

@@ -4,11 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppSuggest.Views.SwipePage">
-    
+             x:Class="AppSuggest.Views.SwipePage"
+             Title="SwipeMenu">
+
     <StackLayout VerticalOptions="FillAndExpand">
-        <ListView x:Name="ListViewMenu"
-                    HasUnevenRows="True">
+        <ListView x:Name="ListViewMenu">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -20,4 +20,5 @@
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
+
 </ContentPage>

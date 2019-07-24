@@ -6,7 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using AppSuggest.Classes;
 
-namespace AppSuggest
+namespace AppSuggest.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
@@ -16,6 +16,7 @@ namespace AppSuggest
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
         public MainPage()
         {
+            Navigation.PopAsync();
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
@@ -29,29 +30,27 @@ namespace AppSuggest
             {
                 switch (id)
                 {
-                    /*case (int)MenuItemType.Feed:
-                        MenuPages.Add(id, new NavigationPage(new FeedPage()));
-                        break;*/
+                    case (int)MenuItemType.Feed:
+                        MenuPages.Add(id, new NavigationPage(new Research()));
+                        break;
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new Research()));
                         break;
-                    /*case (int)MenuItemType.Friends:
-                        MenuPages.Add(id, new NavigationPage(new FriendsPage()));
-                        break;
                     case (int)MenuItemType.Profile:
-                        MenuPages.Add(id, new NavigationPage(new ProfilePage()));
+                        MenuPages.Add(id, new NavigationPage(new Research()));
                         break;
-
+                    case (int)MenuItemType.Friends:
+                        MenuPages.Add(id, new NavigationPage(new Research()));
+                        break;
                     case (int)MenuItemType.Settings:
-                        MenuPages.Add(id, new NavigationPage(new SettingsPage()));
+                        MenuPages.Add(id, new NavigationPage(new Research()));
                         break;
-
                     case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;*/
-
-                    case (int)MenuItemType.Logout:
+                        MenuPages.Add(id, new NavigationPage(new Research()));
                         break;
+
+                    /*case (int)MenuItemType.Logout:
+                        break;*/
                 }
             }
 

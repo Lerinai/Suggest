@@ -12,7 +12,7 @@ namespace AppSuggest.Classes
         Profile,
         Settings,
         About,
-        Logout
+        //Logout
     }
     class SwipeMenuItem
     {
