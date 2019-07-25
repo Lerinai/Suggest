@@ -38,7 +38,7 @@ namespace AppSuggest.Views
             Task<Movie> TrailerPromise = GetTrailer(movie);
             await CastAndCrewPromise;
             await TrailerPromise;
-            Navigation.PushAsync(new MovieDetails(movie));
+            await Navigation.PushAsync(new MovieDetails(movie));
         }
 
         public async Task<Movie> GetCastAndCrew(Movie movie)

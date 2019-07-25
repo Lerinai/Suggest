@@ -11,7 +11,7 @@ namespace AppSuggest
         {
             InitializeComponent();
 
-            MainPage = new ConnectionPage();
+            MainPage = new NavigationPage(new WelcomePage());
         }
 
         protected async override void OnStart()

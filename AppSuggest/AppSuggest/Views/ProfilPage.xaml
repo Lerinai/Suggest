@@ -25,7 +25,7 @@
             <Button 
                 x:Name="myFriend"
                 Text="My Friend"
-                Clicked="myFriendClicked"
+                Clicked="MyFriendClicked"
                 />
             <ListView
                 x:Name="suggestMovie"

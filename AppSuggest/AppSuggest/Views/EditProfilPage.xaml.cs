@@ -18,9 +18,9 @@ namespace AppSuggest.Views
         {
             myUser = user;
             InitializeComponent();
-            profilName.Text = myUser.lastName;
-            profilFirstName.Text = myUser.firstName;
-            imageProfil.Source = myUser.image;
+            profilName.Text = myUser.LastName;
+            profilFirstName.Text = myUser.FirstName;
+            imageProfil.Source = myUser.Image;
 
             InitializeComponent();
         }
@@ -29,10 +29,10 @@ namespace AppSuggest.Views
         {
             if(profilFirstName.Text != "" && profilName.Text != "" &&/* imageProfil.Source != null &&*/ passWord == passWordVerif)
             {
-                myUser.lastName = profilName.Text;
-                myUser.firstName = profilFirstName.Text;
+                myUser.LastName = profilName.Text;
+                myUser.FirstName = profilFirstName.Text;
                 //myUser.image = imageProfil.Source;
-                myUser.password = passWord.Text;
+                myUser.Password = passWord.Text;
 
                 //edit le user dans la db
 

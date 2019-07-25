@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSuggest.Android", "AppSu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSuggest.iOS", "AppSuggest\AppSuggest.iOS\AppSuggest.iOS.csproj", "{EA9E7A78-0D49-42D4-AE6B-0B16F7D66B3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSuggest", "AppSuggest\AppSuggest\AppSuggest.csproj", "{56A05F96-C757-4237-A541-489AE5A4BDB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppSuggest", "AppSuggest\AppSuggest\AppSuggest.csproj", "{56A05F96-C757-4237-A541-489AE5A4BDB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
