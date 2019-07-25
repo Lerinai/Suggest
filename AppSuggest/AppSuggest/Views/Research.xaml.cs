@@ -53,7 +53,7 @@ namespace AppSuggest.Views
                 movie.ListCast.RemoveRange(3, movie.ListCast.Count - 3);
             } catch { }
 
-            movie._director = (from person in ppl
+            movie.Director = (from person in ppl
                                where person.Job == "Director"
                                select person).ToList();
 
@@ -62,7 +62,7 @@ namespace AppSuggest.Views
 
         public async Task<Movie> GetTrailer(Movie movie)
         {
-            movie._trailerPath = await _restService.GetTrailerAsync(movie);
+            movie.TrailerPath = await _restService.GetTrailerAsync(movie);
             return movie;
         }
 

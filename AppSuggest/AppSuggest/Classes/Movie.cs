@@ -17,7 +17,7 @@ namespace AppSuggest
         public string Title { get; private set; }
 
         [JsonProperty("release_date")]
-        private string _releaseDate { get; set; }
+        private string ReleaseDate { get; set; }
 
         public string ReleaseYear
         {
@@ -25,7 +25,7 @@ namespace AppSuggest
             {
                 try
                 {
-                    return _releaseDate.Substring(0, 4);
+                    return ReleaseDate.Substring(0, 4);
                 }
                 catch
                 {
@@ -103,15 +103,15 @@ namespace AppSuggest
             }
         }
 
-        public List<People> _director { private get; set; }
-        public string Director
+        public List<People> Director { private get; set; }
+        public string Directorstr
         {
             get
             {
                 string str = "";
                 try
                 {
-                    foreach (People director in _director)
+                    foreach (People director in Director)
                     {
                         str += $"{director.Name}, ";
                     }
@@ -125,15 +125,15 @@ namespace AppSuggest
             }
         }
 
-        public string _trailerPath { private get; set; }
+        public string TrailerPath { private get; set; }
 
         public string TrailerURL
         {
             get
             {
-                if (_trailerPath != "")
+                if (TrailerPath != "")
                 {
-                    return Constants.YoutubeEndPoint + _trailerPath;
+                    return Constants.YoutubeEndPoint + TrailerPath;
                 }
                 else
                 {

@@ -17,7 +17,6 @@ namespace AppSuggest.Views
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
         public MainPage()
         {
-            Navigation.PopAsync();
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
@@ -49,7 +48,6 @@ namespace AppSuggest.Views
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new Research()));
                         break;
-
                     /*case (int)MenuItemType.Logout:
                         break;*/
                 }
