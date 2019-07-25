@@ -18,8 +18,7 @@
         // Set these to reversed iOS/Android client ids, with :/oauth2redirect appended
         public static string iOSRedirectUrl = "<insert IOS redirect URL here>:/oauth2redirect";
         public static string AndroidRedirectUrl = "<insert Android redirect URL here>:/oauth2redirect";
-    }
-}
+
         public const string Key = "c907fdd04b2640ac48331e900d1cba52";
         public const string MovieResearchEndPoint = "https://api.themoviedb.org/3/search/movie";
         public const string MovieEndPoint = "https://api.themoviedb.org/3/movie";

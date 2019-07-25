@@ -15,7 +15,7 @@ namespace AppSuggest.Views
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class FacebookConnectionPage : ContentPage
+    public partial class FacebookConnectionPage : ContentView
     {
         private string ClientID = "457784411675175";
         public string accessToken;
@@ -31,11 +31,11 @@ namespace AppSuggest.Views
                 HeightRequest = 1
             };
 
-           // webView.Navigated += WebViewOnNavigated;
-           // Content = webView;
+            webView.Navigated += WebViewOnNavigated;
+            Content = webView;
         }
 
-       /* private async void WebViewOnNavigated(object sender, WebNavigatedEventArgs e)
+        private async void WebViewOnNavigated(object sender, WebNavigatedEventArgs e)
         {
             accessToken = ExtractAccessTokenFromUrl(e.Url);
 
@@ -63,6 +63,6 @@ namespace AppSuggest.Views
             var httpClient = new HttpClient();
 
             var userJson = await httpClient.GetStringAsync(requestUrl);
-        }*/
+        }
     }
 }
