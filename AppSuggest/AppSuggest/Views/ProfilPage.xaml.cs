@@ -18,9 +18,9 @@ namespace AppSuggest.Views
         {
             myUser = user;
             InitializeComponent();
-            profilName.Text = myUser.lastName;
-            profilFirstName.Text = myUser.firstName;
-            imageProfil.Source = myUser.image;
+            profilName.Text = myUser.LastName;
+            profilFirstName.Text = myUser.FirstName;
+            imageProfil.Source = myUser.Image;
             suggestMovie.ItemsSource = myUser.toDoList;
             suggestMovieDone.ItemsSource = myUser.doneMovie;
             friendList.ItemsSource = myUser.friendList;
@@ -30,9 +30,9 @@ namespace AppSuggest.Views
         {
             myUser = user;
             InitializeComponent();
-            profilName.Text = myFriend.lastName;
-            profilFirstName.Text = myFriend.firstName;
-            imageProfil.Source = myFriend.image;
+            profilName.Text = myFriend.LastName;
+            profilFirstName.Text = myFriend.FirstName;
+            imageProfil.Source = myFriend.Image;
             suggestMovie.ItemsSource = myFriend.toDoList;
             suggestMovieDone.ItemsSource = myFriend.doneMovie;
             friendList.ItemsSource = myFriend.friendList;
@@ -49,7 +49,7 @@ namespace AppSuggest.Views
         {
             await Navigation.PushAsync(new EditProfilPage(myUser));
         }
-        void myFriendClicked(object sender, EventArgs e)
+        void MyFriendClicked(object sender, EventArgs e)
         {
             friendList.IsVisible = !friendList.IsVisible;
         }

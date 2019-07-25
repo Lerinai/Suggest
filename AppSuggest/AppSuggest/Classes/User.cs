@@ -19,7 +19,7 @@ namespace AppSuggest
 
         private string _firstName;
 
-        public string firstName
+        public string FirstName
         {
             get { return _firstName; }
             set { _firstName = value; }
@@ -27,7 +27,7 @@ namespace AppSuggest
 
         private string _lastName;
 
-        public string lastName
+        public string LastName
         {
             get { return _lastName; }
             set { _lastName = value; }
@@ -35,7 +35,7 @@ namespace AppSuggest
 
         private string _email;
 
-        public string email
+        public string Email
         {
             get { return _email; }
             set { _email = value; }
@@ -43,7 +43,7 @@ namespace AppSuggest
 
         private string _image;
 
-        public string image
+        public string Image
         {
             get { return _image; }
             set { _image = value; }
@@ -51,7 +51,7 @@ namespace AppSuggest
 
         private string _password;
 
-        public string password
+        public string Password
         {
             get { return _password; }
             set { _password = value; }
@@ -65,17 +65,17 @@ namespace AppSuggest
 
         public List<Movie> doneMovie;
 
-        public User()
+        /*public User()
         {
             DataContext db = new DataContext(@"c:\linqtest5\northwnd.mdf"); // db link
 
             // received user session 
 
-            //ID = ; requete id
-            //email = ; requete email
-            //firstName = ; requete firstname
-            //lastName = ; requete lastname 
-        }
+            ID = ; requete id
+            email = ; requete email
+            firstName = ; requete firstname
+            lastName = ; requete lastname 
+        }*/
 
 
 

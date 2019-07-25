@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AppSuggest
+namespace AppSuggest.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Research : ContentPage
@@ -38,7 +38,7 @@ namespace AppSuggest
             Task<Movie> TrailerPromise = GetTrailer(movie);
             await CastAndCrewPromise;
             await TrailerPromise;
-            Navigation.PushAsync(new MovieDetails(movie));
+            await Navigation.PushAsync(new MovieDetails(movie));
         }
 
         public async Task<Movie> GetCastAndCrew(Movie movie)
