@@ -93,6 +93,9 @@
   <EmbeddedResource Update="Views\Setting.xaml">
     <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
   </EmbeddedResource>
+  <EmbeddedResource Update="Views\WebViewSignUp.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
