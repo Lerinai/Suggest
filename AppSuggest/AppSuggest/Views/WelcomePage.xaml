@@ -24,6 +24,7 @@
                     BackgroundColor="{StaticResource shadowColor}" HorizontalOptions="Center" 
                             WidthRequest="120"
                             Clicked="Start"/>
+                    <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#1690F4"/>
                 </StackLayout>
             </Frame>
             <BoxView Rotation="-10" Margin="-20,0,-20,-35"
