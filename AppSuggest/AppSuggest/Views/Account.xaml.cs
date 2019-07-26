@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AppSuggest.Views
+namespace AppSuggest.Views.FolderSetting
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WelcomePage : ContentPage
+    public partial class Account : ContentPage
     {
-        public WelcomePage()
+        public Account()
         {
             InitializeComponent();
-        }
-
-        private void Start(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new HomePage());
         }
     }
 }
