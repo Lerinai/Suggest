@@ -19,8 +19,12 @@ namespace AppSuggest.Views
 
         private void Start(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             Application.Current.MainPage = new MainPage();
 
+=======
+            Navigation.PushAsync(new HomePage());
+>>>>>>> Avancement SettingPage & Modifs HomePage
         }
     }
 }

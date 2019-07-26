@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppSuggest.Views.FolderSetting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,10 +17,18 @@ namespace AppSuggest.Views
         {
             InitializeComponent();
         }
-        private void General_Clicked(object sender, EventArgs e)
+        private void GeneralButton(object sender, EventArgs e)
         {
             Navigation.PushAsync(new General());
         }
-        
+        private void AccountButton(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Account());
+        }
+        private void ConfidentialityButton(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Confidentiality());
+        }
+
     }
 }
