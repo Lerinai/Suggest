@@ -4,12 +4,30 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="Setting"
              x:Class="AppSuggest.Views.Setting">
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="Center"
+                     Margin="{OnPlatform iOS='0,0,25,0', Android='0,0,80,0', Default=0}" 
+                     Orientation="Horizontal">
+            <Image Source="movie2.png" HeightRequest="40" Margin="0,-10,0,0"/>
+            <Label Margin="0,0,0,0" Text="Setting" TextColor="White" FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
+        </StackLayout>
+        
+    </NavigationPage.TitleView>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" 
+                      BackgroundColor="#2196F3">
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label  Margin="20,0,20,0" Text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+                       tempor." TextColor="Black" FontSize="15"
+                       FontAttributes="Italic" HorizontalTextAlignment="Center">
+                </Label>
+                <BoxView HorizontalOptions = "FillAndExpand" WidthRequest = "1" HeightRequest="1" Color="White" Margin="0,10,0,0"/>
+
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -12,7 +12,7 @@ namespace AppSuggest
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new HomePage());
+            MainPage = new NavigationPage(new WelcomePage());
         }
 
         protected async override void OnStart()

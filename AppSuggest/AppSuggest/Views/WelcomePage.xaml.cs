@@ -20,6 +20,7 @@ namespace AppSuggest.Views
         private void Start(object sender, EventArgs e)
         {
             Application.Current.MainPage = new MainPage();
+
         }
     }
 }

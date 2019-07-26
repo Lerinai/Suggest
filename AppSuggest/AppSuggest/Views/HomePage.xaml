@@ -21,6 +21,7 @@
                     Clicked="EnterClicked"/>
             <Label Text="-or-"/>
         <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+<<<<<<< HEAD
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100" />
@@ -34,12 +35,30 @@
                     </Grid.ColumnDefinitions>
                     <AbsoluteLayout>
                         <BoxView BackgroundColor="#2196F3" Margin="0,70,-20,0"
+=======
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <AbsoluteLayout>
+                    <BoxView BackgroundColor="#2196F3" Margin="0,70,-20,0"
+>>>>>>> Navigation
                          AbsoluteLayout.LayoutBounds="0.5,0.5,200,200"
                              AbsoluteLayout.LayoutFlags="PositionProportional" 
                              Grid.Column="0" Grid.Row="0"/>
                         <Label Margin="90,65,70,0" TextColor="White" FontSize="30"
                        FontAttributes="Bold" Text="SUGGEST" HorizontalTextAlignment="Center" 
                        VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="0">
+<<<<<<< HEAD
                         </Label>
                     </AbsoluteLayout>
                     <Label Text="Last Suggestion" TextColor="#23272B" FontSize="25" FontAttributes="Bold"
@@ -70,5 +89,52 @@
                        Grid.Column="0" Grid.Row="4" Margin="70,-40,0,0"/>
                 </Grid>
             </StackLayout>
+=======
+                    </Label>
+                </AbsoluteLayout>
+                <Label Text="Last Suggestion" TextColor="#23272B" FontSize="25" FontAttributes="Bold"
+                       Grid.Column="0" Grid.Row="1" Margin="20,60,0,0"/>
+
+                <Image Source="avatar.png" Margin="20,10,0,0" Grid.Column="0" Grid.Row="2" 
+                       HorizontalOptions="Start"
+                       />
+                <Label Text="Name Name" TextColor="#2196F3" FontSize="15" FontAttributes="Italic"
+                       Grid.Column="0" Grid.Row="2"
+                       Margin="70,37,0,0" />
+                <Label Text="1 hour ago" FontSize="15" Grid.Column="0" Grid.Row="2"
+                       Margin="0,37,5,0" HorizontalTextAlignment="End"/>
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+                       tempor incididunt."
+                       Grid.Column="0" Grid.Row="3" Margin="70,-30,0,0"/>
+
+
+                <Image Source="avatar.png" Margin="20,50,0,0" Grid.Column="0" Grid.Row="3" 
+                       HorizontalOptions="Start"
+                       />
+                <Label Text="Name Name" TextColor="#2196F3" FontSize="15" FontAttributes="Italic"
+                       Grid.Column="0" Grid.Row="3"
+                       Margin="70,65,5,0" />
+                <Label Text="1 hour ago" FontSize="15" Grid.Column="0" Grid.Row="3"
+                       Margin="0,65,0,0" HorizontalTextAlignment="End"/>
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+                       tempor incididunt."
+                       Grid.Column="0" Grid.Row="4" Margin="70,-10,0,0"/>
+
+
+                <!--<Image Source="avatar.png" Margin="20,0,0,0" Grid.Column="0" Grid.Row="4" 
+                       HorizontalOptions="Start"
+                       />
+                <Label Text="Name Name" TextColor="#2196F3" FontSize="15" FontAttributes="Italic"
+                       Grid.Column="0" Grid.Row="4"
+                       Margin="70,40,5,0" />
+                <Label Text="1 hour ago" FontSize="15" Grid.Column="0" Grid.Row="4"
+                       Margin="0,40,0,0" HorizontalTextAlignment="End"/>
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+                       tempor incididunt ut ero labore et dolore magna aliqua. Ut enim ad minim veniam."
+                       Grid.Column="0" Grid.Row="5" Margin="70,-40,0,0"/>-->
+
+            </Grid>
+        </StackLayout>
+>>>>>>> Navigation
     </ContentPage.Content>
 </ContentPage>
