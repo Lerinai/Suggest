@@ -33,10 +33,10 @@
                        VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="0">
                     </Label>
                 </AbsoluteLayout>
-                <Label Text="Last Suggestion" TextColor="#23272B" FontSize="20" FontAttributes="Bold"
+                <Label Text="Last Suggestion" FontSize="20" FontAttributes="Bold"
                        Grid.Column="0" Grid.Row="1" Margin="70,60,0,0"/>
 
-                <Image Source="avatar.png" Margin="20,10,0,0" Grid.Column="0" Grid.Row="2" 
+                <Image Source="women.png" Margin="20,10,0,0" Grid.Column="0" Grid.Row="2" 
                        HorizontalOptions="Start"
                        />
                 <Label Text="Name Name" TextColor="#2196F3" FontSize="15" FontAttributes="Italic"
@@ -48,7 +48,7 @@
                        Grid.Column="0" Grid.Row="3" Margin="70,-30,0,0"/>
 
 
-                <Image Source="avatar.png" Margin="20,50,0,0" Grid.Column="0" Grid.Row="3" 
+                <Image Source="men.png" Margin="20,50,0,0" Grid.Column="0" Grid.Row="3" 
                        HorizontalOptions="Start"
                        />
                 <Label Text="Name Name" TextColor="#2196F3" FontSize="15" FontAttributes="Italic"

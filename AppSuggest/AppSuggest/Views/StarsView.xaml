@@ -7,7 +7,7 @@
              x:Class="AppSuggest.Views.StarsView">
     <ContentView.Content>
         <StackLayout Spacing="0" Padding="0">
-            <AbsoluteLayout Rotation="10" Margin="0,40,0,0">
+            <AbsoluteLayout Rotation="10" Margin="0,20,0,0">
                 <BoxView Color="{StaticResource shadowColor}" AbsoluteLayout.LayoutFlags="WidthProportional"
                          AbsoluteLayout.LayoutBounds="-10,8,0.56,42"/>
                 <Image x:Name="star1" AbsoluteLayout.LayoutFlags="PositionProportional"
