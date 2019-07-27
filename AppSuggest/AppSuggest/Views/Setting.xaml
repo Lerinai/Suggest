@@ -45,7 +45,8 @@
                          Clicked="AccountButton" BackgroundColor="Transparent"/>
             <Label Text="Account" TextColor="White" FontSize="20" Grid.Column="0" Grid.Row="2"
                        Margin="110,20,0,0" />
-            <ImageButton Source="lock_.png" Margin="-150,20,0,0" Grid.Column="0" Grid.Row="3" BackgroundColor="Transparent"/>
+            <ImageButton Source="lock_.png" Margin="-150,20,0,0" Grid.Column="0" Grid.Row="3" 
+                         Clicked="ConfidentialityButton" BackgroundColor="Transparent"/>
             <Label Text="Confidentialy" TextColor="White" FontSize="20" Grid.Column="0" 
                        Grid.Row="3" Margin="110,20,0,0"/>
 

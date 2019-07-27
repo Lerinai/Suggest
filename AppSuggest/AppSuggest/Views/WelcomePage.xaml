@@ -7,24 +7,23 @@
              mc:Ignorable="d"
              x:Class="AppSuggest.Views.WelcomePage">
     <ContentPage.Content>
-        <StackLayout Spacing="0" Padding="0">
+        <StackLayout Spacing="0" Padding="0" BackgroundColor="#2196F3" >
             <views:StarsView/>
             <Frame BackgroundColor="Transparent"  VerticalOptions="FillAndExpand">
                 <StackLayout VerticalOptions="Center">
-                    <Image Source="movie2.png"/>
+                    <Image Source="movie2.png" Margin="0,-35,0,0"/>
                     <Label Text="SUGGEST"
                    TextColor="{StaticResource titleColor}" HorizontalOptions="Center" 
-                   FontSize="50"/>
+                   FontSize="40"/>
                     
                     <Label Text="Qua venire se repentina Caesar."
                    TextColor="{StaticResource titleColor}" HorizontalOptions="Center"
-                   FontSize="22" FontAttributes="Italic"/>
+                   FontSize="18" FontAttributes="Italic"/>
                     <Button x:Name="play" Text="Get started" 
                     Margin="0,20,0,0" TextColor="#444" FontSize="20"
                     BackgroundColor="{StaticResource shadowColor}" HorizontalOptions="Center" 
                             WidthRequest="120"
                             Clicked="Start"/>
-                    <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#1690F4"/>
                 </StackLayout>
             </Frame>
             <BoxView Rotation="-10" Margin="-20,0,-20,-35"
