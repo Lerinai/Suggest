@@ -5,11 +5,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="AppSuggest.Views.About">
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="Center"
+                     Margin="{OnPlatform iOS='0,0,25,0', Android='0,0,80,0', Default=0}" 
+                     Orientation="Horizontal">
+            <Label Text="About" TextColor="White"
+                   FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+        <StackLayout VerticalOptions="Center">
+            <Label Text="SUGGEST" FontAttributes="Bold" FontSize="40"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Label Text="1.0.0" TextColor="Black"
+                   HorizontalOptions="Center" Margin="0,0,0,0"
+                   FontSize="20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
