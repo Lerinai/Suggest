@@ -1,5 +1,4 @@
-﻿using AppSuggest.Log;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AppSuggest.Views;
 
 namespace AppSuggest.Caroussel
 {

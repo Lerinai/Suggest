@@ -21,7 +21,6 @@ namespace AppSuggest.Views
             {
                 new SwipeMenuItem {Id = MenuItemType.Feed, Title = "Feed"},
                 new SwipeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new SwipeMenuItem {Id = MenuItemType.Friends, Title="Friends" },
                 new SwipeMenuItem {Id = MenuItemType.Profile, Title="Profile" },
                 new SwipeMenuItem {Id = MenuItemType.Settings, Title="Settings" },
                 new SwipeMenuItem {Id = MenuItemType.About, Title="About" },
@@ -32,7 +31,7 @@ namespace AppSuggest.Views
 
             ListViewMenu.ItemsSource = menuItems;
 
-            ListViewMenu.SelectedItem = menuItems[1];
+            ListViewMenu.SelectedItem = menuItems[0];
             ListViewMenu.ItemSelected += async (sender, e) =>
             {
                 if (e.SelectedItem == null)

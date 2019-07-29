@@ -27,7 +27,7 @@
         public const string MovieEndPoint = "https://api.themoviedb.org/3/movie";
         public const string PosterEndPoint = "https://image.tmdb.org/t/p";
         public const string YoutubeEndPoint = "https://youtube.com/watch?v=";
-        public const string GenresEndPoint = "https://api.themoviedb.org/3/genre/movie/list?api_key=c907fdd04b2640ac48331e900d1cba52";
+        public const string GenresEndPoint = "https://api.themoviedb.org/3/genre/movie";
     }
 }
 //https://api.themoviedb.org/3/search/movie?api_key=c907fdd04b2640ac48331e900d1cba52&query=Jack+Reacher endpoint + key + query

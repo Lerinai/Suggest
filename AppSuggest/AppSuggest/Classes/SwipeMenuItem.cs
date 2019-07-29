@@ -8,7 +8,6 @@ namespace AppSuggest.Classes
     {
         Feed,
         Browse,
-        Friends,
         Profile,
         Settings,
         About,

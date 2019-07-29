@@ -21,7 +21,7 @@ namespace AppSuggest.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Feed, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -31,7 +31,7 @@ namespace AppSuggest.Views
                 switch (id)
                 {
                     case (int)MenuItemType.Feed:
-                        MenuPages.Add(id, new NavigationPage(new Research()));
+                        MenuPages.Add(id, new NavigationPage(new HomePage()));
                         break;
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new Research()));
@@ -39,14 +39,11 @@ namespace AppSuggest.Views
                     case (int)MenuItemType.Profile:
                         MenuPages.Add(id, new NavigationPage(new Research()));
                         break;
-                    case (int)MenuItemType.Friends:
-                        MenuPages.Add(id, new NavigationPage(new Research()));
-                        break;
                     case (int)MenuItemType.Settings:
-                        MenuPages.Add(id, new NavigationPage(new Research()));
+                        MenuPages.Add(id, new NavigationPage(new Setting()));
                         break;
                     case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new Research()));
+                        MenuPages.Add(id, new NavigationPage(new About()));
                         break;
                     /*case (int)MenuItemType.Logout:
                         break;*/

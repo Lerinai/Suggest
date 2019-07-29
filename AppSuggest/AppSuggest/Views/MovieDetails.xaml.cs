@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-<<<<<<< HEAD
 namespace AppSuggest.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]

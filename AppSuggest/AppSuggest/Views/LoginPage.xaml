@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppSuggest.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20,0" Orientation="Vertical" 
+                     VerticalOptions="Center">
+            <Label Text="Sign In" FontAttributes="Bold" TextColor="#23272B" FontSize="40"
+                   HorizontalTextAlignment="Center"/>
+            <Entry x:Name="idEntry" Margin="0,35,0,0" Placeholder="Email" 
+                       PlaceholderColor="Black"></Entry>
+            <Entry x:Name="passwordEntry" Margin="0,0,0,0" 
+                   Placeholder="Password" 
+                       PlaceholderColor="Black" IsPassword="True"></Entry>
+            <Button Margin="0,30,0,0" Text="Sign In" BackgroundColor="#ffc04c" 
+                    CornerRadius="25" Clicked="Connected_Clicked" 
+                    TextColor="White" FontAttributes="Bold"/>
+            <Button Margin="40,0,40,0" Text="Forget Password ?" 
+                    BackgroundColor="White" Clicked="Connected_Clicked"></Button>
+            <Button Margin="40,40,40,0" Text="Sign Up" TextColor="Black" BackgroundColor="#ffc04c"
+                     Command="{Binding ClickCommand}"
+                    CommandParameter="https://signup-suggest.capelli-home.com/index.php">
+                
+            </Button>
+        </StackLayout>
+
+        
+    </ContentPage.Content>
+</ContentPage>

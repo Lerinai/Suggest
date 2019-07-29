@@ -7,8 +7,6 @@
              x:Class="AppSuggest.Views.MovieDetails">
     <ContentPage.Content>
         <StackLayout Margin="10">
-    <ContentPage.Content>
-        <StackLayout>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
