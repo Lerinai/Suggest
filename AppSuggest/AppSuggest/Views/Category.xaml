@@ -5,6 +5,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="AppSuggest.Views.Category">
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="Center"
+                     Margin="{OnPlatform iOS='0,0,25,0', Android='0,0,80,0', Default=0}" 
+                     Orientation="Horizontal">
+            <Label Text="Category" TextColor="White"
+                   FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
