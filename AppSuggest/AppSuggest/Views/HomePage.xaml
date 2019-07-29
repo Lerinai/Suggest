@@ -28,7 +28,7 @@
                          AbsoluteLayout.LayoutBounds="0.5,0.5,200,200"
                              AbsoluteLayout.LayoutFlags="PositionProportional" 
                              Grid.Column="0" Grid.Row="0"/>
-                        <Label Margin="90,65,70,0" TextColor="White" FontSize="30"
+                    <Label Margin="90,65,70,0" TextColor="White" FontSize="30"
                        FontAttributes="Bold" Text="SUGGEST" HorizontalTextAlignment="Center" 
                        VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="0">
                     </Label>

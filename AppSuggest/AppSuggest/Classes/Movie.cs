@@ -50,7 +50,6 @@ namespace AppSuggest
                     return "https://i.imgur.com/VKBcwxH.png";
                 }
             }
-
         }
 
         [JsonProperty("genre_ids")]
@@ -127,7 +126,6 @@ namespace AppSuggest
         }
 
         public string TrailerPath { private get; set; }
-
         public string TrailerURL
         {
             get
